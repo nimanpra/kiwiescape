@@ -1,6 +1,59 @@
+import { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import { Box, Container, Typography, Grid, TextField, Button } from '@mui/material';
 
 const About = () => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  useEffect(() => {
+    emailjs.init('kJw40HqQbLrKs5hQu');
+  }, []);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const templateParams = {
+        from_name: `${formData.firstName} ${formData.lastName}`,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: formData.message
+      };
+
+      await emailjs.send(
+        'service_le3ida1',
+        'template_dvnrlt1',
+        templateParams
+      );
+
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+
+      alert('Your message has been sent successfully!');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Failed to send message. Please try again later.');
+    }
+  };
+
   return (
     <Box sx={{ bgcolor: '#F5FAFA', color: 'var(--text-dark)', minHeight: 'calc(100vh - 80px)' }}>
       <Container maxWidth="lg">
@@ -106,7 +159,7 @@ const About = () => {
               </Typography>
               <Typography sx={{ mb: 1, color: '#000000' }}>86 Newlands Road Newlands</Typography>
               <Typography sx={{ mb: 1, color: '#000000' }}>Wellington, New Zealand</Typography>
-              <Typography sx={{ mb: 1, color: '#000000' }}>info@kiwiescape.co.nz</Typography>
+              <Typography sx={{ mb: 1, color: '#000000' }}>info@kiwiescapetours.co.nz</Typography>
             </Box>
           </Grid>
 
@@ -114,6 +167,7 @@ const About = () => {
           <Grid item xs={12} md={6}>
             <Box
               component="form"
+              onSubmit={handleSubmit}
               sx={{
                 bgcolor: 'white',
                 p: 4,
@@ -138,7 +192,11 @@ const About = () => {
                   <TextField
                     fullWidth
                     label="First Name"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     variant="outlined"
+                    required
                     sx={{
                       mb: 2,
                       '& .MuiOutlinedInput-root': {
@@ -159,7 +217,11 @@ const About = () => {
                   <TextField
                     fullWidth
                     label="Last Name"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     variant="outlined"
+                    required
                     sx={{
                       mb: 2,
                       '& .MuiOutlinedInput-root': {
@@ -181,7 +243,12 @@ const About = () => {
               <TextField
                 fullWidth
                 label="Email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
                 variant="outlined"
+                required
                 sx={{
                   mb: 2,
                   '& .MuiOutlinedInput-root': {
@@ -201,7 +268,11 @@ const About = () => {
               <TextField
                 fullWidth
                 label="Phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 variant="outlined"
+                required
                 sx={{
                   mb: 2,
                   '& .MuiOutlinedInput-root': {
@@ -221,9 +292,13 @@ const About = () => {
               <TextField
                 fullWidth
                 label="Message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 multiline
                 rows={4}
                 variant="outlined"
+                required
                 sx={{
                   mb: 3,
                   '& .MuiOutlinedInput-root': {
@@ -241,6 +316,7 @@ const About = () => {
               />
 
               <Button
+                type="submit"
                 variant="contained"
                 fullWidth
                 sx={{

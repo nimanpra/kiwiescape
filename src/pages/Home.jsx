@@ -17,56 +17,56 @@ const tourPackages = [
     duration: "15 Days",
     price: "$13,734",
     description: "Discover the best of North Island with exclusive experiences",
-    image: "public/images/legendary-newzealand.jpeg"
+    image: "/images/legendary-newzealand.jpeg"
   },
   {
     title: "14 Days New Zealand",
     duration: "14 Days",
     price: "$9,850",
     description: "Experience the legendary landscapes from Fiordland to Auckland",
-    image: "public/images/legendary-newzealand.jpeg"
+    image: "/images/14-day-newzealand.png"
   },
   {
     title: "Premium South Island",
     duration: "10 Days",
     price: "$9,136",
     description: "Discover the majestic beauty of New Zealand's South Island",
-    image: "public/images/premiumsouthisland.jpeg"
+    image: "/images/premiumsouthisland.jpeg"
   },
   {
     title: "North Island Adventure",
     duration: "8 Days",
     price: "$7,012",
     description: "Explore volcanic landscapes and Maori culture",
-    image: "public/images/northisland.jpeg"
+    image: "/images/northisland.jpeg"
   },
   {
     title: "South Island Explorer",
     duration: "8 Days",
     price: "$5,500",
     description: "Discover the natural wonders from Christchurch to Queenstown",
-    image: "public/images/southislandexplorer.jpeg"
+    image: "/images/southislandexplorer.jpeg"
   },
   {
     title: "Sri Lankan Discovery",
     duration: "15 Days",
     price: "$6,531",
     description: "Experience the cultural heritage and natural wonders of Sri Lanka",
-    image: "public/images/srilankandiscovery.jpeg"
+    image: "/images/srilankandiscovery.jpeg"
   },
   {
     title: "Premium Sri Lanka",
     duration: "14 Days",
     price: "$8,450",
     description: "Indulge in luxury experiences across Sri Lanka's finest destinations",
-    image: "public/images/premiumsrilanka.jpeg"
+    image: "/images/premiumsrilanka.jpeg"
   },
   {
     title: "Sri Lankan Explorer",
     duration: "9 Days",
     price: "$5,680",
     description: "Discover the cultural heritage and natural wonders of Sri Lanka",
-    image: "public/images/srilankanexplorer.jpeg"
+    image: "/images/srilankan-explorer.png"
   }
 ];
 

@@ -106,7 +106,7 @@ const Footer = () => {
               opacity: 0.7
             }}
           >
-            Developed by OpenLabs Research Limited
+            Developed by OpenLabs Research 
           </Typography>
         </Typography>
       </Container>

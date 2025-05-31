@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 import { 
   Box, 
   Container, 
@@ -88,9 +89,49 @@ const BookOnline = () => {
     }
   }, [location]);
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    emailjs.init('kJw40HqQbLrKs5hQu');
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (selectedPackage.toLowerCase() === 'premium new zealand') {
+    if (formType === 'custom') {
+      try {
+        const templateParams = {
+          from_name: name,
+          from_email: email,
+          phone: phone,
+          preferred_destinations: preferredDestinations,
+          duration: duration,
+          budget: budget,
+          additional_info: additionalInfo,
+          travel_date: travelDate ? travelDate.toLocaleDateString() : '',
+          travelers: travelers
+        };
+
+        await emailjs.send(
+          'service_le3ida1',
+          'template_dvnrlt1',
+          templateParams
+        );
+
+        // Reset form
+        setName('');
+        setEmail('');
+        setPhone('');
+        setPreferredDestinations('');
+        setDuration('');
+        setBudget('');
+        setAdditionalInfo('');
+        setTravelDate(null);
+        setTravelers('');
+
+        alert('Your inquiry has been sent successfully!');
+      } catch (error) {
+        console.error('Error sending email:', error);
+        alert('Failed to send inquiry. Please try again later.');
+      }
+    } else if (selectedPackage.toLowerCase() === 'premium new zealand') {
       window.location.href = 'https://buy.stripe.com/9AQ4k46SE45zgve7sv';
     } else if (selectedPackage.toLowerCase() === 'north island adventure') {
       window.location.href = 'https://buy.stripe.com/5kA8AkccY9pTfracMQ';
@@ -106,9 +147,6 @@ const BookOnline = () => {
       window.location.href = 'https://buy.stripe.com/cN217SccYby17YI3cl';
     } else if (selectedPackage.toLowerCase() === 'sri lankan discovery') {
       window.location.href = 'https://buy.stripe.com/4gw8Aka4Q9pT3IseV4';
-    } else {
-      // Add your form submission logic here
-      console.log('Form submitted');
     }
   };
 
@@ -332,6 +370,7 @@ const BookOnline = () => {
                           label="Full Name"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
+                          required
                           sx={{
                             '& .MuiOutlinedInput-root': {
                               '& fieldset': {
@@ -360,6 +399,7 @@ const BookOnline = () => {
                           type="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
+                          required
                           sx={{
                             '& .MuiOutlinedInput-root': {
                               '& fieldset': {
@@ -387,6 +427,7 @@ const BookOnline = () => {
                           label="Phone"
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
+                          required
                           sx={{
                             '& .MuiOutlinedInput-root': {
                               '& fieldset': {
@@ -413,6 +454,7 @@ const BookOnline = () => {
                           label="Travel Date"
                           value={travelDate}
                           onChange={(newValue) => setTravelDate(newValue)}
+                          required
                           sx={{
                             width: '100%',
                             '& .MuiInputLabel-root': {
@@ -437,6 +479,7 @@ const BookOnline = () => {
                             <TextField 
                               {...params} 
                               fullWidth
+                              required
                               sx={{
                             '& .MuiOutlinedInput-root': {
                               '& fieldset': {
@@ -461,6 +504,7 @@ const BookOnline = () => {
                           type="number"
                           value={travelers}
                           onChange={(e) => setTravelers(e.target.value)}
+                          required
                           sx={{
                             '& .MuiOutlinedInput-root': {
                               '& fieldset': {
@@ -492,6 +536,7 @@ const BookOnline = () => {
                               label="Preferred Destinations"
                               value={preferredDestinations}
                               onChange={(e) => setPreferredDestinations(e.target.value)}
+                              required
                               sx={{
                                 '& .MuiOutlinedInput-root': {
                                   '& fieldset': {
@@ -519,6 +564,7 @@ const BookOnline = () => {
                               label="Preferred Duration"
                               value={duration}
                               onChange={(e) => setDuration(e.target.value)}
+                              required
                               sx={{
                                 '& .MuiOutlinedInput-root': {
                                   '& fieldset': {
@@ -546,6 +592,7 @@ const BookOnline = () => {
                               label="Budget Range"
                               value={budget}
                               onChange={(e) => setBudget(e.target.value)}
+                              required
                               sx={{
                                 '& .MuiOutlinedInput-root': {
                                   '& fieldset': {
@@ -575,6 +622,7 @@ const BookOnline = () => {
                               label="Additional Information"
                               value={additionalInfo}
                               onChange={(e) => setAdditionalInfo(e.target.value)}
+                              required
                               sx={{
                                 '& .MuiOutlinedInput-root': {
                                   '& fieldset': {

@@ -9,7 +9,7 @@ const tourPackages = [
     duration: "15 Days",
     price: "$13,734",
     description: "Discover the best of North Island with exclusive experiences",
-    image: "public/images/legendary-newzealand.jpeg",
+    image: "/images/legendary-newzealand.jpeg",
     route: "/packages/premium-new-zealand",
     highlights: [
       "Auckland City Tour",
@@ -26,7 +26,7 @@ const tourPackages = [
     duration: "8 Days",
     price: "$7,012",
     description: "Explore volcanic landscapes and Maori culture",
-    image: "public/images/northisland.jpeg",
+    image: "/images/northisland.jpeg",
     route: "/packages/north-island-adventure",
     highlights: [
       "Wellington City Tour",
@@ -41,7 +41,7 @@ const tourPackages = [
     duration: "8 Days",
     price: "$5,500",
     description: "Experience the stunning landscapes and adventures of New Zealand's South Island",
-    image: "public/images/southislandexplorer.jpeg",
+    image: "/images/southislandexplorer.jpeg",
     route: "/packages/south-island-explorer",
     highlights: [
       "Milford Sound Cruise",
@@ -56,7 +56,7 @@ const tourPackages = [
     duration: "10 Days",
     price: "$9,136",
     description: "Luxury journey through New Zealand's South Island with premium experiences",
-    image: "public/images/premiumsouthisland.jpeg",
+    image: "/images/premiumsouthisland.jpeg",
     route: "/packages/premium-south-island",
     highlights: [
       "Helicopter Tours",
@@ -71,7 +71,7 @@ const tourPackages = [
     duration: "14 Days",
     price: "$9,850",
     description: "The ultimate New Zealand experience combining both islands' best attractions",
-    image: "public/images/legendary-newzealand.jpeg",
+    image: "/images/14-day-newzealand.png",
     route: "/packages/14-days-new-zealand",
     highlights: [
       "Complete Island Tour",
@@ -86,7 +86,7 @@ const tourPackages = [
     duration: "8 Days",
     price: "$5,500",
     description: "Embark on a luxury journey through Sri Lanka's most captivating destinations, combining ancient wonders, wildlife encounters, and coastal relaxation.",
-    image: "public/images/srilankanexplorer.jpeg",
+    image: "/images/srilankan-explorer.png",
     route: "/packages/sri-lankan-explorer",
     highlights: [
       "Ancient Rock Fortress of Sigiriya",
@@ -101,7 +101,7 @@ const tourPackages = [
     duration: "14 Days",
     price: "$8,450",
     description: "Experience the cultural richness and natural beauty of Sri Lanka",
-    image: "public/images/premiumsrilanka.jpeg",
+    image: "/images/premiumsrilanka.jpeg",
     route: "/packages/premium-sri-lanka",
     highlights: [
       "Cultural Triangle Exploration",
@@ -116,7 +116,7 @@ const tourPackages = [
     duration: "15 Days",
     price: "$6,531",
     description: "Discover the hidden gems of Sri Lanka with this comprehensive tour package",
-    image: "public/images/srilankandiscovery.jpeg",
+    image: "/images/srilankandiscovery.jpeg",
     route: "/packages/sri-lankan-discovery",
     highlights: [
       "Ancient Cities Tour",

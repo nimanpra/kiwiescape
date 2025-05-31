@@ -66,7 +66,7 @@ const Navbar = () => {
         >
           <Box
             component="img"
-            src="/images/logo.png"
+            src="/images/logo3.jpg"
             alt="Kiwi Escape Tours Logo"
             sx={{
               height: { xs: '40px', md: '60px' },
